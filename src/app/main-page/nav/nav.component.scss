@@ -1,38 +1,35 @@
-
 @import "../../../assets/themes/variables";
 
-
 .movies-banner {
-    height: 20rem;
-    width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../../assets/images/1.jpg);
-    background-size: cover;
-    background-position: center;
+  height: 20rem;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../../assets/images/1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 nav {
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 nav ul li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px 20px;
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 20px;
 }
-nav ul li a{
-   color: $white;
-   text-decoration: none;
-   font-weight: bolder;
+nav ul li a {
+  color: $white;
+  text-decoration: none;
+  font-weight: bolder;
 }
-nav ul li a:hover{
-   color: $primaryColor;
-   text-decoration: none;
-   font-weight: bolder;
+nav ul li a:hover {
+  color: $primaryColor;
+  text-decoration: none;
+  font-weight: bolder;
 }

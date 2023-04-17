@@ -1,0 +1,38 @@
+@import "../../../assets/themes/variables";
+
+.card-direction {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+.space {
+  margin-right: 7rem;
+}
+
+.watchlist-space {
+  margin-left: 2rem;
+}
+
+.btn {
+  background-color: $primaryColor;
+  border: none;
+  color: white;
+  padding: 5px 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: $buttonsAlternative;
+}
+
+i {
+  font-style: normal;
+  font-weight: 500;
+}

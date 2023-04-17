@@ -1,0 +1,18 @@
+<!-- <header (onSearchTextChanged)="onSearchTextEntered($any($event))"></header> -->
+
+<div class="container container-space   " > 
+
+    <div class="row">
+
+        <div class="col-xs-6 col-sm-3" *ngFor="let movie of movies">
+      
+            <!-- <div *ngIf="searchText==='' || movie.title.toLowerCase().includes(searchText)" > -->
+                <movie-card [movie]="movie"></movie-card>
+            <!-- </div> -->
+           
+
+        </div>
+    </div>
+</div> 
+
+
