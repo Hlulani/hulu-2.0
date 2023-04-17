@@ -15,6 +15,7 @@ import { ActionComponent } from './main-page/nav/action/action.component';
 import { FavoriteComponent } from './main-page/nav/favorite/favorite.component';
 import { WatchListComponent } from './main-page/nav/watch-list/watch-list.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './main-page/footer/footer.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     FictionComponent,
     ActionComponent,
     FavoriteComponent,
-    WatchListComponent
+    WatchListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

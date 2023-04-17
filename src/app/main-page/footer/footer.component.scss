@@ -1,0 +1,32 @@
+@import "../../../assets/themes/variables";
+
+.footer {
+  background-color: $primaryColor;
+  padding-bottom: 150px;
+}
+
+.footer-white {
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-spacing {
+  margin-top: 8rem;
+  text-align: left;
+}
+
+.solutions {
+  color: #a9a9a9;
+}
+
+.footer-links a {
+  padding-right: 60px;
+  color: #1f1f1f;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    color: $primaryColor;
+  }
+}
