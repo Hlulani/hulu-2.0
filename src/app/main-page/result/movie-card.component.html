@@ -1,0 +1,25 @@
+<div class="card">
+  <img
+    src="https://image.tmdb.org/t/p/w200/{{ movie?.poster_path }}"
+    class="card-img-top"
+    style="
+      border: 1px solid black;
+      height: 250px !important;
+      width: 200px !important;
+    "
+  />
+
+  <div class="card-body">
+    <h5 class="card-title">{{ movie?.title | slice: 0:25 }}...</h5>
+    <p class="card-text flex item-center">
+      <span class="badge badge-primary">{{ movie?.release_date }}</span>
+    </p>
+
+    <p class="card-text flex item-center">
+      <button class="btn"><i class="bi bi-heart">Favorite</i></button>
+      <button class="btn watchlist-space">
+        <i class="bi bi-bookmark-plus">wishList</i>
+      </button>
+    </p>
+  </div>
+</div>

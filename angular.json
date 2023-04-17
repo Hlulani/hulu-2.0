@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/images/Hulu-2.png",
               "src/assets"
             ],
             "styles": [
@@ -92,7 +92,7 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/images/Hulu-2.png",
               "src/assets"
             ],
             "styles": [
@@ -103,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "39955549-afdb-466c-b5af-7c730a2cce5d"
   }
 }
