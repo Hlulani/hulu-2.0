@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesServiceService } from 'src/app/services/movies-service.service';
+import { Movie } from 'src/app/shared/model';
 
 @Component({
   selector: 'favorite',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
 
-  constructor() { }
+  movies: any[] = [];
 
-  ngOnInit(): void {
+  constructor(private moviesService: MoviesServiceService) { 
+
   }
 
+  ngOnInit(): void {
+    this.getFavorites();
+  }
+
+  getAllTrendingMovies() {
+    this.moviesService.getAllTrending().subscribe((data) => {
+      console.log('Data', data.results);
+      this.movies = data.results;
+    });
+  }
+
+  getFavorites() {
+    //Get value from local storage
+    const favoriteMovieValue = localStorage.getItem('favouriteMovies') || '[]'
+    this.movies = JSON.parse(favoriteMovieValue) as Movie[];
+  }
 }

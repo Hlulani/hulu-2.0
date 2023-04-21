@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Movie } from 'src/app/shared/model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Movie } from 'src/app/shared/model';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent implements OnInit {
+
+  @Output() addToFavorites = new EventEmitter<any>();
 
 
   @Input() movie: Movie | undefined;
@@ -17,4 +19,18 @@ export class MovieCardComponent implements OnInit {
 
   }
 
+  onAddToFavorites() {
+    //Get List from local storage as array or null
+    const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
+
+    //Parse a value from local storage
+    const favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
+
+    //Push movie to array
+    favoriteMoviesList.push(this.movie!);
+  
+    //Set value back to local storage
+    localStorage.setItem('favouriteMovies', JSON.stringify(favoriteMoviesList));
+    
+  }
 }
