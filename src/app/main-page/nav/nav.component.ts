@@ -1,6 +1,4 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -8,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  searchTerm: string = '';
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @Output() searchQuery = new EventEmitter<string>();
+
+  onSearchQueryChange() {
+    this.searchQuery.emit(this.searchTerm);
   }
 
 }

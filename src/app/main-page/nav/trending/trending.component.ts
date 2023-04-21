@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MoviesServiceService } from 'src/app/services/movies-service.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
 export class TrendingComponent implements OnInit {
   movies: any[] = [];
 
+  @Input() favoriteMovies: any[] = [];
+  
   constructor(private moviesService: MoviesServiceService) {}
 
   ngOnInit(): void {
