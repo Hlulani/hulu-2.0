@@ -33,4 +33,19 @@ export class MovieCardComponent implements OnInit {
     localStorage.setItem('favouriteMovies', JSON.stringify(favoriteMoviesList));
     
   }
+
+  onAddToWatchList() {
+    //Get List from local storage as array or null
+    const watchListMovies = localStorage.getItem('watchListMovies') || '[]';
+
+    //Parse a value from local storage
+    const watchListMoviesMoviesList = JSON.parse(watchListMovies) as Movie[];
+
+    //Push movie to array
+    watchListMoviesMoviesList.push(this.movie!);
+  
+    //Set value back to local storage
+    localStorage.setItem('favouriteMovies', JSON.stringify(watchListMoviesMoviesList));
+    
+  }
 }
