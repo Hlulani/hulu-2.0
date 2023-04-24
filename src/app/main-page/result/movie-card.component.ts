@@ -15,11 +15,32 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  favoriteMovies: any[] = [];
-
   isFavorite(movie: any): boolean {
-    return this.favoriteMovies.some(
-      (favoriteMovie) => favoriteMovie.id === movie.id
+    const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
+
+    const favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
+
+    const arr = Array.from(favoriteMoviesList);
+
+    console.log('Array', arr)
+
+    return arr.some(
+      (favoriteMovieObj) => favoriteMovieObj.title == movie.title
+    );
+  }
+
+
+  isWatchList(movie: any): boolean {
+    const favoriteMovies = localStorage.getItem('watchListMovies') || '[]';
+
+    const favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
+
+    const arr = Array.from(favoriteMoviesList);
+
+    console.log('Array', arr)
+
+    return arr.some(
+      (favoriteMovieObj) => favoriteMovieObj.title == movie.title
     );
   }
 
@@ -49,8 +70,52 @@ export class MovieCardComponent implements OnInit {
 
     //Set value back to local storage
     localStorage.setItem(
-      'favouriteMovies',
+      'watchListMovies',
       JSON.stringify(watchListMoviesMoviesList)
     );
+  }
+
+  removeMoviesFromFavorite() {
+    //Get List from local storage as array or null
+    const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
+
+    //Parse a value from local storage
+    let favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
+
+    // Find the index of the movie to remove
+    let index = favoriteMoviesList.findIndex((m) => m.title=== this.movie?.title);
+
+    if (index > -1) {
+      // Remove the movie from the array
+      favoriteMoviesList.splice(index, 1);
+
+      // Convert the modified array back to JSON
+      const updatedFavorites = JSON.stringify(favoriteMoviesList);
+
+      // Store the modified JSON data back to local storage
+      localStorage.setItem('favouriteMovies', updatedFavorites);
+    }
+  }
+
+  removeMoviesFromWatchList() {
+    //Get List from local storage as array or null
+    const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
+
+    //Parse a value from local storage
+    let favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
+
+    // Find the index of the movie to remove
+    let index = favoriteMoviesList.findIndex((m) => m.title === this.movie?.title);
+
+    if (index > -1) {
+      // Remove the movie from the array
+      favoriteMoviesList.splice(index, 1);
+
+      // Convert the modified array back to JSON
+      const updatedFavorites = JSON.stringify(favoriteMoviesList);
+
+      // Store the modified JSON data back to local storage
+      localStorage.setItem('favouriteMovies', updatedFavorites);
+    }
   }
 }
