@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { HeaderComponent } from './main-page/header/header.component';
 import { NavComponent } from './main-page/nav/nav.component';
 import { MovieCardComponent } from './main-page/result/movie-card.component';
 import { TrendingComponent } from './main-page/nav/trending/trending.component';
@@ -22,7 +21,6 @@ import { FooterComponent } from './main-page/footer/footer.component';
   declarations: [
     AppComponent,
     MainPageComponent,
-    HeaderComponent,
     NavComponent,
     MovieCardComponent,
     TrendingComponent,
