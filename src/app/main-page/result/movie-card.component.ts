@@ -4,19 +4,23 @@ import { Movie } from 'src/app/shared/model';
 @Component({
   selector: 'movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss']
+  styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
-
   @Output() addToFavorites = new EventEmitter<any>();
-
 
   @Input() movie: Movie | undefined;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  favoriteMovies: any[] = [];
+
+  isFavorite(movie: any): boolean {
+    return this.favoriteMovies.some(
+      (favoriteMovie) => favoriteMovie.id === movie.id
+    );
   }
 
   onAddToFavorites() {
@@ -28,10 +32,9 @@ export class MovieCardComponent implements OnInit {
 
     //Push movie to array
     favoriteMoviesList.push(this.movie!);
-  
+
     //Set value back to local storage
     localStorage.setItem('favouriteMovies', JSON.stringify(favoriteMoviesList));
-    
   }
 
   onAddToWatchList() {
@@ -43,9 +46,11 @@ export class MovieCardComponent implements OnInit {
 
     //Push movie to array
     watchListMoviesMoviesList.push(this.movie!);
-  
+
     //Set value back to local storage
-    localStorage.setItem('favouriteMovies', JSON.stringify(watchListMoviesMoviesList));
-    
+    localStorage.setItem(
+      'favouriteMovies',
+      JSON.stringify(watchListMoviesMoviesList)
+    );
   }
 }
