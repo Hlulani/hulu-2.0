@@ -17,7 +17,6 @@ export class MainPageComponent implements OnInit {
 
   onSearchTextEntered(searchValue: any) {
     this.searchText = searchValue;
-    console.log('Search Text', this.searchText);
   }
 
 }
