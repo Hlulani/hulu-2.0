@@ -1,3 +1,4 @@
+import { Movie } from 'src/app/shared/model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-nav',
@@ -6,17 +7,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  searchTerm: string = '';
+  searchQuery: string = '';
+
+  movies: Movie[] = [];
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  @Output() searchQuery = new EventEmitter<string>();
 
-  onSearchQueryChange() {
-    this.searchQuery.emit(this.searchTerm);
+  filterMovies() {
+    return this.movies.filter(movie => {
+      const name = movie.title.toLowerCase();
+      const query = this.searchQuery.toLowerCase();
+
+      console.log('Query', query)
+      return name.includes(query);
+    });
   }
 
 }

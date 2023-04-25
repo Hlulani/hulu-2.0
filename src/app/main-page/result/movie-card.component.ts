@@ -22,7 +22,6 @@ export class MovieCardComponent implements OnInit {
 
     const arr = Array.from(favoriteMoviesList);
 
-    console.log('Array', arr)
 
     return arr.some(
       (favoriteMovieObj) => favoriteMovieObj.title == movie.title
@@ -36,9 +35,6 @@ export class MovieCardComponent implements OnInit {
     const favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
 
     const arr = Array.from(favoriteMoviesList);
-
-    console.log('Array', arr)
-
     return arr.some(
       (favoriteMovieObj) => favoriteMovieObj.title == movie.title
     );
