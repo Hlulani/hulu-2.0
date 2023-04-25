@@ -8,15 +8,13 @@ import { Movie } from 'src/app/shared/model';
 })
 export class WatchListComponent implements OnInit {
   movies: any[] = [];
-
+  
   constructor() { 
-
   }
 
   ngOnInit(): void {
     this.getWatchList();
   }
-
 
   getWatchList() {
     //Get value from local storage

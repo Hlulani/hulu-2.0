@@ -16,10 +16,21 @@
     </p>
 
     <p class="card-text flex item-center">
-      <button class="btn"><i class="bi bi-heart" (click)="onAddToFavorites()">Favorite</i></button>
+      <button
+        class="btn"
+        [disabled]="isFavorite(movie)"
+        (click)="onAddToFavorites()"
+      >
+        <i class="bi bi-heart">Favorite</i>
+      </button>
+      <!-- <button class="btn" (click)="removeMoviesFromFavorite()"><i class="bi bi-heart">remove</i></button> -->
 
-      <button class="btn watchlist-space">
-        <i class="bi bi-bookmark-plus" (click)="onAddToWatchList()">wishList</i>
+      <button
+        class="btn watchlist-space"
+        [disabled]="isWatchList(movie)"
+        (click)="onAddToWatchList()"
+      >
+        <i class="bi bi-bookmark-plus">wishList</i>
       </button>
     </p>
   </div>

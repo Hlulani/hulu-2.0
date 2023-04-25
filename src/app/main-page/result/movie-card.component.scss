@@ -32,6 +32,10 @@
   background-color: $buttonsAlternative;
 }
 
+.btn:disabled {
+  background-color: gray;
+}
+
 i {
   font-style: normal;
   font-weight: 500;

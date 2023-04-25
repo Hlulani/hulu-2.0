@@ -33,3 +33,64 @@ nav ul li a:hover {
   text-decoration: none;
   font-weight: bolder;
 }
+
+
+.header {
+    display: flex;
+    width: 100%;
+    background: $primaryColor;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+.header .icon{
+    font-size: 35px;
+    font-weight: 800;
+    color: $white;
+    cursor: pointer;
+}
+
+.header .search-box {
+
+    display: flex;
+    margin: auto 0;
+    height: 35px;
+    line-height: 35px;
+}
+
+.header .search-box input{
+   border: none;
+   outline: none;
+   background:$white;
+   height: 100%;
+   padding: 0 10px;
+   font-size: 20px;
+   width: 350px;
+}
+.header .search-box span{
+  color: $primaryColor;
+  font-size: 20px;
+  background: $white;
+  height: 100%;
+  padding: 8px;
+  position: relative;
+  z-index: 1;
+}
+.header .search-box span::after{
+
+    height: 100%;
+    width: 100%;
+    content: '';
+    background:$white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+.header .search-box span:hover::after{
+    width: 100%;
+
+}
