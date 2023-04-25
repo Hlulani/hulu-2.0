@@ -22,12 +22,10 @@ export class MovieCardComponent implements OnInit {
 
     const arr = Array.from(favoriteMoviesList);
 
-
     return arr.some(
-      (favoriteMovieObj) => favoriteMovieObj.title == movie.title
+      (favoriteMovieObj) => favoriteMovieObj.title == movie?.title
     );
   }
-
 
   isWatchList(movie: any): boolean {
     const favoriteMovies = localStorage.getItem('watchListMovies') || '[]';
@@ -72,6 +70,10 @@ export class MovieCardComponent implements OnInit {
   }
 
   removeMoviesFromFavorite() {
+    if (!this.movie) {
+      return;
+    }
+
     //Get List from local storage as array or null
     const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
 
@@ -79,7 +81,9 @@ export class MovieCardComponent implements OnInit {
     let favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
 
     // Find the index of the movie to remove
-    let index = favoriteMoviesList.findIndex((m) => m.title=== this.movie?.title);
+    let index = favoriteMoviesList.findIndex(
+      (m) => m.title === this.movie?.title
+    );
 
     if (index > -1) {
       // Remove the movie from the array
@@ -94,6 +98,10 @@ export class MovieCardComponent implements OnInit {
   }
 
   removeMoviesFromWatchList() {
+    if (!this.movie) {
+      return;
+    }
+
     //Get List from local storage as array or null
     const favoriteMovies = localStorage.getItem('favouriteMovies') || '[]';
 
@@ -101,7 +109,9 @@ export class MovieCardComponent implements OnInit {
     let favoriteMoviesList = JSON.parse(favoriteMovies) as Movie[];
 
     // Find the index of the movie to remove
-    let index = favoriteMoviesList.findIndex((m) => m.title === this.movie?.title);
+    let index = favoriteMoviesList.findIndex(
+      (m) => m.title === this.movie?.title
+    );
 
     if (index > -1) {
       // Remove the movie from the array
