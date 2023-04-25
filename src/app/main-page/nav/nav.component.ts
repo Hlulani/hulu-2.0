@@ -22,8 +22,7 @@ export class NavComponent implements OnInit {
     return this.movies.filter(movie => {
       const name = movie.title.toLowerCase();
       const query = this.searchQuery.toLowerCase();
-
-      console.log('Query', query)
+      
       return name.includes(query);
     });
   }

@@ -21,12 +21,10 @@ export class TrendingComponent implements OnInit {
 
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
-    console.log('Search Text', this.searchText);
   }
 
   getAllTrendingMovies() {
     this.moviesService.getAllTrending().subscribe((data) => {
-      console.log('Data', data.results);
       this.movies = data.results;
     });
   }
