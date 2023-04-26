@@ -1,10 +1,12 @@
 <!-- loop and render movies -->
-<div class="container container-space" > 
-    <div class="row">
-        <div class="col-xs-6 col-sm-3" *ngFor="let movie of movies">
-            <movie-card [movie]="movie"></movie-card>
-        </div>
+<div class="container container-space">
+  <div class="row">
+    <div class="col-xs-6 col-sm-3" *ngFor="let movie of movies">
+      <movie-card
+        [movie]="movie"
+        [hideButtons]="true"
+        [hideRemoveMoviesFromFavorite]="true"
+      ></movie-card>
     </div>
+  </div>
 </div>
-
-  

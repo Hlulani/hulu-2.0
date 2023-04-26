@@ -8,17 +8,11 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
 })
 export class FictionComponent implements OnInit {
 
-  movies: any[] = [];
-
-  constructor(private moviesService: MoviesServiceService) {}
-
+  constructor(public moviesService: MoviesServiceService) {
+    this.moviesService.getAllFiction().subscribe()
+  }
   ngOnInit(): void {
-    this.getAllFictionMovies();
+    throw new Error('Method not implemented.');
   }
-
-  getAllFictionMovies() {
-    this.moviesService.getAllFiction().subscribe((data) => {
-      this.movies = data.results;
-    });
-  }
+  
 }

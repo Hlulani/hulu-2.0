@@ -7,25 +7,12 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
   styleUrls: ['./trending.component.scss'],
 })
 export class TrendingComponent implements OnInit {
-  movies: any[] = [];
-
   @Input() favoriteMovies: any[] = [];
-  
-  constructor(private moviesService: MoviesServiceService) {}
+
+  constructor(public moviesService: MoviesServiceService) {
+    this.moviesService.getAllTrending().subscribe()
+  }
 
   ngOnInit(): void {
-    this.getAllTrendingMovies();
-  }
-
-  searchText: string = '';
-
-  onSearchTextEntered(searchValue: string) {
-    this.searchText = searchValue;
-  }
-
-  getAllTrendingMovies() {
-    this.moviesService.getAllTrending().subscribe((data) => {
-      this.movies = data.results;
-    });
   }
 }

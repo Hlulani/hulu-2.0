@@ -8,18 +8,10 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
 })
 export class ActionComponent implements OnInit {
 
-  movies: any[] = [];
-
-  constructor(private moviesService: MoviesServiceService) {}
-
-  ngOnInit(): void {
-    this.getAllActionMovies();
+  constructor(public moviesService: MoviesServiceService) {
+    this.moviesService.getAllAction().subscribe()
   }
-
-  getAllActionMovies() {
-    this.moviesService.getAllAction().subscribe((data) => {
-      this.movies = data.results;
-    });
+  ngOnInit(): void {
   }
 
 }

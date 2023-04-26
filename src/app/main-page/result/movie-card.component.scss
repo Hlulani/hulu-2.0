@@ -40,3 +40,16 @@ i {
   font-style: normal;
   font-weight: 500;
 }
+
+.removeButton {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 5px 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background-color: gray;
+}
