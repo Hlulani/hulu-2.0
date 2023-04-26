@@ -1,10 +1,9 @@
+import { of } from 'rxjs';
 import { MoviesServiceService } from 'src/app/services/movies-service.service';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TrendingComponent } from './trending.component';
-import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
 
 describe('TrendingComponent', () => {
   let component: TrendingComponent;
@@ -13,12 +12,16 @@ describe('TrendingComponent', () => {
 
   beforeEach(async () => {
     moviesService = jasmine.createSpyObj('MoviesServiceService', ['getAllTrending']);
-
-    moviesService.getAllTrending.and.returnValue(of({ results: [{ name: 'Ghosted' }, { name: 'The Super Mario Bros. Movie' }] }));
-
+    moviesService.getAllTrending.and.returnValue(of({
+      results: [
+        { id: 1, title: 'Movie 1' },
+        { id: 2, title: 'Movie 2' },
+        { id: 3, title: 'Movie 3' }
+      ]
+    }));
     await TestBed.configureTestingModule({
-      declarations: [ TrendingComponent ],
       imports: [ HttpClientTestingModule ],
+      declarations: [ TrendingComponent ],
       providers: [
         { provide: MoviesServiceService, useValue: moviesService }
       ]
@@ -29,14 +32,27 @@ describe('TrendingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TrendingComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should fetch fiction movies', fakeAsync(() => {
-    component.getAllTrendingMovies;
-    tick();
-    expect(component.movies.length).toBe(2);
-    expect(component.movies[0].name).toBe('Ghosted');
-    expect(component.movies[1].name).toBe('The Super Mario Bros. Movie');
-  }));
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('getAllTrendingMovies', () => {
+    it('should call getAllTrending on moviesService', () => {
+      component.getAllTrendingMovies();
+      expect(moviesService.getAllTrending).toHaveBeenCalled();
+    });
+
+    it('should set the movies property to the response data', () => {
+      component.getAllTrendingMovies();
+      expect(component.movies).toEqual([
+        { id: 1, title: 'Movie 1' },
+        { id: 2, title: 'Movie 2' },
+        { id: 3, title: 'Movie 3' }
+      ]);
+    });
+  });
 });
+
+

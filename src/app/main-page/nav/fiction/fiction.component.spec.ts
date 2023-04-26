@@ -1,9 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MoviesServiceService } from 'src/app/services/movies-service.service';
 
 import { FictionComponent } from './fiction.component';
 import { of } from 'rxjs';
+
 
 describe('FictionComponent', () => {
   let component: FictionComponent;
@@ -12,12 +13,16 @@ describe('FictionComponent', () => {
 
   beforeEach(async () => {
     moviesService = jasmine.createSpyObj('MoviesServiceService', ['getAllFiction']);
-
-    moviesService.getAllFiction.and.returnValue(of({ results: [{ name: 'Ghosted' }, { name: 'The Super Mario Bros. Movie' }] }));
-
+    moviesService.getAllFiction.and.returnValue(of({
+      results: [
+        { id: 1, title: 'Movie 1' },
+        { id: 2, title: 'Movie 2' },
+        { id: 3, title: 'Movie 3' }
+      ]
+    }));
     await TestBed.configureTestingModule({
-      declarations: [ FictionComponent ],
       imports: [ HttpClientTestingModule ],
+      declarations: [ FictionComponent ],
       providers: [
         { provide: MoviesServiceService, useValue: moviesService }
       ]
@@ -28,14 +33,27 @@ describe('FictionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FictionComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should fetch fiction movies', fakeAsync(() => {
-    component.getAllFictionMovies;
-    tick();
-    expect(component.movies.length).toBe(2);
-    expect(component.movies[0].name).toBe('Ghosted');
-    expect(component.movies[1].name).toBe('The Super Mario Bros. Movie');
-  }));
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('getAllFictionMovies', () => {
+    it('should call getAllTrending on moviesService', () => {
+      component.getAllFictionMovies();
+      expect(moviesService.getAllFiction).toHaveBeenCalled();
+    });
+
+    it('should set the fiction movies property to the response data', () => {
+      component.getAllFictionMovies();
+      expect(component.movies).toEqual([
+        { id: 1, title: 'Movie 1' },
+        { id: 2, title: 'Movie 2' },
+        { id: 3, title: 'Movie 3' }
+      ]);
+    });
+  });
 });
+
+

@@ -12,9 +12,9 @@ import { TrendingComponent } from './main-page/nav/trending/trending.component';
 import { FictionComponent } from './main-page/nav/fiction/fiction.component';
 import { ActionComponent } from './main-page/nav/action/action.component';
 import { FavoriteComponent } from './main-page/nav/favorite/favorite.component';
-import { WatchListComponent } from './main-page/nav/watch-list/watch-list.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './main-page/footer/footer.component';
+import { WatchListComponent } from './main-page/nav/watch-list/watch-list.component';
 
 
 @NgModule({
@@ -27,8 +27,8 @@ import { FooterComponent } from './main-page/footer/footer.component';
     FictionComponent,
     ActionComponent,
     FavoriteComponent,
-    WatchListComponent,
-    FooterComponent
+    FooterComponent,
+    WatchListComponent
   ],
   imports: [
     BrowserModule,

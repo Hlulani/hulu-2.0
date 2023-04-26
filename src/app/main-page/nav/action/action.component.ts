@@ -7,11 +7,19 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
   styleUrls: ['./action.component.scss']
 })
 export class ActionComponent implements OnInit {
+  movies: any[] = [];
 
   constructor(public moviesService: MoviesServiceService) {
-    this.moviesService.getAllAction().subscribe()
+    
   }
   ngOnInit(): void {
+    this.getAllActionMovies();
+  }
+
+  getAllActionMovies() {
+    this.moviesService.getAllAction().subscribe((data) => {
+      this.movies = data.results;
+    });
   }
 
 }

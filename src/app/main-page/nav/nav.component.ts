@@ -1,6 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
 import {MoviesServiceService} from "../../services/movies-service.service";
 import {Location} from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -13,6 +14,8 @@ export class NavComponent implements OnDestroy {
   searchQuery: string = '';
 
   movies: any = []
+  public moviesData$ = new BehaviorSubject<any>([]); // initialize moviesData$ with an empty array
+
 
   constructor(public moviesServiceService: MoviesServiceService, private location: Location) {
   }

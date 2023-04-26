@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesServiceService } from 'src/app/services/movies-service.service';
 
 @Component({
@@ -7,12 +7,19 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
   styleUrls: ['./trending.component.scss'],
 })
 export class TrendingComponent implements OnInit {
-  @Input() favoriteMovies: any[] = [];
+  movies: any[] = [];
 
   constructor(public moviesService: MoviesServiceService) {
-    this.moviesService.getAllTrending().subscribe()
+    
   }
 
   ngOnInit(): void {
+    this.getAllTrendingMovies()
+  }
+
+  getAllTrendingMovies() {
+    this.moviesService.getAllTrending().subscribe((data) => {
+      this.movies = data.results;
+    });
   }
 }
