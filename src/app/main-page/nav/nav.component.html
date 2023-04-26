@@ -1,35 +1,36 @@
-
-
- <div class="movies-container">
-    <div class="header">
-      <div class="icon">Hulu <b style="color: rgb(34, 93, 104);">2.0</b></div>
-      <div class="search-box rounded-pill">
-        <input
-          type="search"
-          placeholder="Search here"
-          [(ngModel)]="searchQuery"
-        >
-        <span class="fa fa-search"></span>
-      </div>
+<div class="movies-container">
+  <div class="header">
+    <div class="icon">Hulu <b style="color: rgb(34, 93, 104);">2.0</b></div>
+    <div class="search-box">
+      <input
+        type="search"
+        placeholder="Search here"
+        [(ngModel)]="searchQuery"
+        (change)="filterMovies()"
+      >
+      <span class="fa fa-search"></span>
     </div>
+  </div>
+  <ng-container *ngIf="movies && movies.length">
     <div class="movies-list">
-      <div *ngFor="let movie of filterMovies()">
+      <div *ngFor="let movie of movies">
         {{ movie.title }}
       </div>
     </div>
-  </div>
+  </ng-container>
+</div>
 
 
 <div class="movies-banner">
-    <nav>
-        <ul>
-            <li><a routerLink="/" routerLinkActive="active" >Treding</a></li>
-            <li><a routerLink="/fiction">Fiction</a></li>
-            <li><a routerLink="/action">Action</a></li>
-            <li><a routerLink="/watch-list">watch-list  </a></li>
-            <li><a routerLink="/favourite">Favourite</a></li>
-         </ul>
-     </nav>
+  <nav>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Trending</a></li>
+      <li><a routerLink="/fiction">Fiction</a></li>
+      <li><a routerLink="/action">Action</a></li>
+      <li><a routerLink="/watch-list">watch-list </a></li>
+      <li><a routerLink="/favourite">Favourite</a></li>
+    </ul>
+  </nav>
 </div>
 
 

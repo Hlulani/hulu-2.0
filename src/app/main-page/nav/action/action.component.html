@@ -1,6 +1,6 @@
 <div class="container container-space">
   <div class="row">
-    <div class="col-xs-6 col-sm-3" *ngFor="let movie of movies">
+    <div class="col-xs-6 col-sm-3" *ngFor="let movie of moviesService.moviesData$ | async">
       <movie-card [movie]="movie"></movie-card>
     </div>
   </div>

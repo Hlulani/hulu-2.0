@@ -9,6 +9,9 @@ import { Movie } from 'src/app/shared/model';
 export class MovieCardComponent implements OnInit {
   @Output() addToFavorites = new EventEmitter<any>();
 
+  @Input() hideButtons: boolean = false;
+  @Input() hideRemoveMoviesFromFavorite: boolean = false;
+
   @Input() movie: Movie | undefined;
 
   constructor() {}
