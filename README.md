@@ -1,27 +1,46 @@
-# Hulu20
+# Hulu Clone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
-## Development server
+## This is a clone of the popular streaming service Hulu, built with Angular and utilizing the TMDB API for fetching movie and TV show data.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Features
+- Browse popular movies and TV shows
+- Search for movies and TV shows by title
+- View details of each movie or TV show, including its Trending, Action, and Fiction
+- Add movies you like to either favourite or watchlist
+- Responsive design that adapts to different screen sizes
 
-## Code scaffolding
+# Dependencies
+## This project depends on the following libraries:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular: a popular JavaScript framework for building single-page applications
+- TMDB API: an API that provides movie and TV show data, including their images, summaries, genres, and ratings
+- Bootstrap: a popular CSS framework for building responsive and mobile-first websites
+- ngx-bootstrap: a set of Bootstrap components built for Angular
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Setup
 
-## Running unit tests
+## To run this project locally, you need to have Node.js and Angular CLI installed on your computer. Here are the steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Clone this repository to your local machine.
+- Install dependencies by running npm install in the project directory.
+- Obtain an API key from TMDB by creating an account and following the instructions on their website.
+- Replace the apiKey variable in the tmdb.service.ts file with your own API key.
+- Run `ng serve` to start the development server. Navigate to http://localhost:4200/ to view the app.
+- Run the test using `ng test`
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+# Acknowledgements
+## This project was built with the guidance of the following resources:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular - The Complete Guide (2021 Edition)
+- Bootstrap documentation
+- ngx-bootstrap documentation
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Demo
+You can find a live demo of this project at: https://hulu-2-0-hlulani.vercel.app/.
