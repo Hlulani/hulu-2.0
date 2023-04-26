@@ -10,18 +10,21 @@ xdescribe('NavComponent', () => {
   let moviesServiceSpy: jasmine.SpyObj<MoviesServiceService>;
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('MoviesServiceService', ['getAllTrending', 'getAllFiction', 'getAllAction', 'searchMovies']);
+    const spy = jasmine.createSpyObj('MoviesServiceService', [
+      'getAllTrending',
+      'getAllFiction',
+      'getAllAction',
+      'searchMovies',
+    ]);
 
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ],
-      providers: [
-        Location,
-        { provide: MoviesServiceService, useValue: spy }
-      ]
-    })
-    .compileComponents();
+      declarations: [NavComponent],
+      providers: [Location, { provide: MoviesServiceService, useValue: spy }],
+    }).compileComponents();
 
-    moviesServiceSpy = TestBed.inject(MoviesServiceService) as jasmine.SpyObj<MoviesServiceService>;
+    moviesServiceSpy = TestBed.inject(
+      MoviesServiceService
+    ) as jasmine.SpyObj<MoviesServiceService>;
   });
 
   beforeEach(() => {

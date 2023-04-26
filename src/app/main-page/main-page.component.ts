@@ -12,11 +12,4 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  searchText: string = '';
-
-  onSearchTextEntered(searchValue: any) {
-    this.searchText = searchValue;
-  }
-
 }

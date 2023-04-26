@@ -11,22 +11,23 @@ describe('TrendingComponent', () => {
   let moviesService: jasmine.SpyObj<MoviesServiceService>;
 
   beforeEach(async () => {
-    moviesService = jasmine.createSpyObj('MoviesServiceService', ['getAllTrending']);
-    moviesService.getAllTrending.and.returnValue(of({
-      results: [
-        { id: 1, title: 'Movie 1' },
-        { id: 2, title: 'Movie 2' },
-        { id: 3, title: 'Movie 3' }
-      ]
-    }));
+    moviesService = jasmine.createSpyObj('MoviesServiceService', [
+      'getAllTrending',
+    ]);
+    moviesService.getAllTrending.and.returnValue(
+      of({
+        results: [
+          { id: 1, title: 'Movie 1' },
+          { id: 2, title: 'Movie 2' },
+          { id: 3, title: 'Movie 3' },
+        ],
+      })
+    );
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      declarations: [ TrendingComponent ],
-      providers: [
-        { provide: MoviesServiceService, useValue: moviesService }
-      ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [TrendingComponent],
+      providers: [{ provide: MoviesServiceService, useValue: moviesService }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -49,10 +50,8 @@ describe('TrendingComponent', () => {
       expect(component.movies).toEqual([
         { id: 1, title: 'Movie 1' },
         { id: 2, title: 'Movie 2' },
-        { id: 3, title: 'Movie 3' }
+        { id: 3, title: 'Movie 3' },
       ]);
     });
   });
 });
-
-

@@ -4,13 +4,12 @@ import { Movie } from 'src/app/shared/model';
 @Component({
   selector: 'watch-list',
   templateUrl: './watch-list.component.html',
-  styleUrls: ['./watch-list.component.scss']
+  styleUrls: ['./watch-list.component.scss'],
 })
 export class WatchListComponent implements OnInit {
   movies: any[] = [];
-  
-  constructor() { 
-  }
+
+  constructor() {}
 
   ngOnInit(): void {
     this.getWatchList();
@@ -18,7 +17,7 @@ export class WatchListComponent implements OnInit {
 
   getWatchList() {
     //Get value from local storage
-    const watchListMovieValue = localStorage.getItem('watchListMovies') || '[]'
+    const watchListMovieValue = localStorage.getItem('watchListMovies') || '[]';
     this.movies = JSON.parse(watchListMovieValue) as Movie[];
   }
 }

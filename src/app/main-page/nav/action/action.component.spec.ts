@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { MoviesServiceService } from 'src/app/services/movies-service.service';
 
@@ -19,13 +14,15 @@ describe('ActionComponent', () => {
     moviesService = jasmine.createSpyObj('MoviesServiceService', [
       'getAllAction',
     ]);
-    moviesService.getAllAction.and.returnValue(of({
-      results: [
-        { id: 1, title: 'Movie 1' },
-        { id: 2, title: 'Movie 2' },
-        { id: 3, title: 'Movie 3' }
-      ]
-    }));
+    moviesService.getAllAction.and.returnValue(
+      of({
+        results: [
+          { id: 1, title: 'Movie 1' },
+          { id: 2, title: 'Movie 2' },
+          { id: 3, title: 'Movie 3' },
+        ],
+      })
+    );
 
     await TestBed.configureTestingModule({
       declarations: [ActionComponent],

@@ -5,29 +5,29 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
 import { FictionComponent } from './fiction.component';
 import { of } from 'rxjs';
 
-
 describe('FictionComponent', () => {
   let component: FictionComponent;
   let fixture: ComponentFixture<FictionComponent>;
   let moviesService: jasmine.SpyObj<MoviesServiceService>;
 
   beforeEach(async () => {
-    moviesService = jasmine.createSpyObj('MoviesServiceService', ['getAllFiction']);
-    moviesService.getAllFiction.and.returnValue(of({
-      results: [
-        { id: 1, title: 'Movie 1' },
-        { id: 2, title: 'Movie 2' },
-        { id: 3, title: 'Movie 3' }
-      ]
-    }));
+    moviesService = jasmine.createSpyObj('MoviesServiceService', [
+      'getAllFiction',
+    ]);
+    moviesService.getAllFiction.and.returnValue(
+      of({
+        results: [
+          { id: 1, title: 'Movie 1' },
+          { id: 2, title: 'Movie 2' },
+          { id: 3, title: 'Movie 3' },
+        ],
+      })
+    );
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      declarations: [ FictionComponent ],
-      providers: [
-        { provide: MoviesServiceService, useValue: moviesService }
-      ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [FictionComponent],
+      providers: [{ provide: MoviesServiceService, useValue: moviesService }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -50,10 +50,8 @@ describe('FictionComponent', () => {
       expect(component.movies).toEqual([
         { id: 1, title: 'Movie 1' },
         { id: 2, title: 'Movie 2' },
-        { id: 3, title: 'Movie 3' }
+        { id: 3, title: 'Movie 3' },
       ]);
     });
   });
 });
-
-

@@ -9,9 +9,8 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieCardComponent ]
-    })
-    .compileComponents();
+      declarations: [MovieCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -24,16 +23,20 @@ describe('MovieCardComponent', () => {
     spyOn(component, 'onAddToFavorites');
 
     const addToFavoritesButton = fixture.debugElement.query(By.css('.btn'));
-  
+
     addToFavoritesButton.nativeElement.click();
-  
+
     fixture.detectChanges();
-  
+
     expect(component.onAddToFavorites).toHaveBeenCalled();
   });
 
   it('should return true if the movie is a favorite', () => {
-    const movie: Movie = { title: 'The Godfather', overview: 'Francis Ford Coppola', release_date: '1972' } as Movie;
+    const movie: Movie = {
+      title: 'The Godfather',
+      overview: 'Francis Ford Coppola',
+      release_date: '1972',
+    } as Movie;
     const favoriteMovies = [movie];
     localStorage.setItem('favouriteMovies', JSON.stringify(favoriteMovies));
     fixture.componentInstance.movie = movie;
@@ -41,5 +44,4 @@ describe('MovieCardComponent', () => {
     const div = fixture.debugElement.query(By.css('div'));
     expect(div).toBeTruthy();
   });
-
 });

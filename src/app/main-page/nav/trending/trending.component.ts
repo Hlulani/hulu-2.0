@@ -9,12 +9,10 @@ import { MoviesServiceService } from 'src/app/services/movies-service.service';
 export class TrendingComponent implements OnInit {
   movies: any[] = [];
 
-  constructor(public moviesService: MoviesServiceService) {
-    
-  }
+  constructor(public moviesService: MoviesServiceService) {}
 
   ngOnInit(): void {
-    this.getAllTrendingMovies()
+    this.getAllTrendingMovies();
   }
 
   getAllTrendingMovies() {
