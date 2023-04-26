@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/shared/model';
 
 @Component({
